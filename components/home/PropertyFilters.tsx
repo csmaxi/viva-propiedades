@@ -15,14 +15,13 @@ export function PropertyFilters({
   onCategoryFilterChange
 }: PropertyFiltersProps) {
   return (
-    <div className="max-w-5xl mx-auto mb-8 bg-white rounded-2xl shadow-lg p-6 md:p-8">
-      {/* Filtros por Tipo de Operación */}
+    <div className="max-w-5xl mx-auto mb-8 bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
       <div className="mb-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Tag className="h-5 w-5 text-emerald-600" />
-          <h3 className="text-lg font-bold text-gray-900">Tipo de Operación</h3>
+          <Tag className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600" />
+          <h3 className="text-sm sm:text-lg font-bold text-gray-900">Tipo de Operación</h3>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:grid sm:grid-cols-3 md:grid-cols-5 sm:gap-3 sm:mx-0 sm:px-0">
           {[
             { value: "Todas" as CategoryFilter, label: "Todas", icon: Building2 },
             { value: "VENTA" as CategoryFilter, label: "Venta", icon: Tag },
@@ -37,46 +36,40 @@ export function PropertyFilters({
                 key={filter.value}
                 onClick={() => onCategoryFilterChange(filter.value)}
                 className={`
-                  relative flex flex-col items-center justify-center p-4 rounded-xl border-2 
-                  transition-all duration-300 transform hover:scale-105 hover:shadow-md
+                  flex-shrink-0 flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border-2 
+                  transition-all duration-300
                   ${isActive 
-                    ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 border-emerald-600 text-white shadow-lg scale-105' 
+                    ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 border-emerald-600 text-white shadow-lg' 
                     : 'bg-white border-gray-200 text-gray-700 hover:border-emerald-300 hover:bg-emerald-50'
                   }
+                  min-w-[80px] sm:min-w-0
                 `}
               >
-                <Icon className={`h-6 w-6 mb-2 ${isActive ? 'text-white' : 'text-emerald-600'}`} />
-                <span className={`text-sm font-semibold ${isActive ? 'text-white' : 'text-gray-700'}`}>
+                <Icon className={`h-5 w-5 sm:h-6 sm:w-6 mb-1.5 ${isActive ? 'text-white' : 'text-emerald-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${isActive ? 'text-white' : 'text-gray-700'}`}>
                   {filter.label}
                 </span>
-                {isActive && (
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
-                    <div className="w-3 h-3 bg-emerald-600 rounded-full"></div>
-                  </div>
-                )}
               </button>
             )
           })}
         </div>
       </div>
 
-      {/* Separador */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t-2 border-gray-200"></div>
+          <div className="w-full border-t border-gray-200"></div>
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-white px-4 text-sm text-gray-500 font-medium">Y</span>
+          <span className="bg-white px-3 text-xs sm:text-sm text-gray-400 font-medium">o</span>
         </div>
       </div>
 
-      {/* Filtros por Tipo de Propiedad */}
       <div>
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Home className="h-5 w-5 text-emerald-600" />
-          <h3 className="text-lg font-bold text-gray-900">Tipo de Propiedad</h3>
+          <Home className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600" />
+          <h3 className="text-sm sm:text-lg font-bold text-gray-900">Tipo de Propiedad</h3>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:grid sm:grid-cols-3 md:grid-cols-5 sm:gap-3 sm:mx-0 sm:px-0">
           {[
             { value: "Todas" as PropertyType, label: "Todas", icon: Building2 },
             { value: "Casas" as PropertyType, label: "Casas", icon: Home },
@@ -91,23 +84,19 @@ export function PropertyFilters({
                 key={filter.value}
                 onClick={() => onTypeFilterChange(filter.value)}
                 className={`
-                  relative flex flex-col items-center justify-center p-4 rounded-xl border-2 
-                  transition-all duration-300 transform hover:scale-105 hover:shadow-md
+                  flex-shrink-0 flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border-2 
+                  transition-all duration-300
                   ${isActive 
-                    ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-600 text-white shadow-lg scale-105' 
+                    ? 'bg-gradient-to-br from-blue-500 to-blue-600 border-blue-600 text-white shadow-lg' 
                     : 'bg-white border-gray-200 text-gray-700 hover:border-blue-300 hover:bg-blue-50'
                   }
+                  min-w-[80px] sm:min-w-0
                 `}
               >
-                <Icon className={`h-6 w-6 mb-2 ${isActive ? 'text-white' : 'text-blue-600'}`} />
-                <span className={`text-sm font-semibold ${isActive ? 'text-white' : 'text-gray-700'}`}>
+                <Icon className={`h-5 w-5 sm:h-6 sm:w-6 mb-1.5 ${isActive ? 'text-white' : 'text-blue-600'}`} />
+                <span className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${isActive ? 'text-white' : 'text-gray-700'}`}>
                   {filter.label}
                 </span>
-                {isActive && (
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
-                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                  </div>
-                )}
               </button>
             )
           })}
@@ -116,4 +105,3 @@ export function PropertyFilters({
     </div>
   )
 }
-
